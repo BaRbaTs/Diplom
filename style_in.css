@@ -2,40 +2,54 @@
 	margin:0px;
 	padding:0px;
 }
-body{
+html{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
-content{
+body{
     width: 400px;
     height: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content: space-evenly;
     background: radial-gradient(circle, rgba(233,198,148,1) 0%, rgba(218,148,233,1) 100%);
-    
 }
 form{
     width: 250px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.input, Label{
+    height: 250px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+
 }
-.label_in, label{
-    font-family: "Times New Roman", Georgia, Serif;
+input{
+    height: 40px;
+    width: 250px;
+    font-size: 15px;
+}
+label{
+    font-family: "Arial", Georgia, Serif;
     font-size:18px;
 }
 .form_button{
-    width: 45%;
+    width: 60%;
+    height: 20%;
+    font-family: "Arial", Georgia, Serif;
+    border:0px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.log, .pas{
+    display: flex;
+    flex-direction: column;
+}
+.label_in{
+    font-family: "Arial", Georgia, Serif;
+    font-size: 30px;
+    font-weight: bold;
 }
