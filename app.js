@@ -1,9 +1,17 @@
-var greeting1 = require("./greeting.js");
-console.log(`Hello ${greeting1.name}`); //Hello Alice
- 
-var greeting2 = require("./greeting.js");
-greeting2.name= "Bob";
- 
-console.log(`Hello ${greeting2.name}`); //Hello Bob
-// greeting1.name тоже изменилось
-console.log(`Hello ${greeting1.name}`); //Hello Bob
+const express = require("express");
+   
+const app = express();
+   
+// создаем парсер для данных application/x-www-form-urlencoded
+app.use(express.json())
+app.use(express.urlencoded({extended: false}));
+  
+app.use("/", express.static('./public'));
+
+app.post("/login", (request, response) => {
+    if(!request.content) return response.sendStatus(400);
+    console.log(request.content);
+    response.send(`${request.content.login} - ${request.content.password}`);
+});
+   
+app.listen(3000, () => console.log("Сервер запущен..."));
