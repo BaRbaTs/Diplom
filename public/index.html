@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/style_in.css">
-<title>Вход</title>
-</head>
-    <body>
-        <div class="label_in">Вход</div>
-        <content>
-            <form name = "loginForm" class="input_form" method="post">
-                    <div class="log">
-                    <label>Логин: </label>
-                    <input type="text" name="login" placeholder="Введите логин" required >
-                    </div>
-                    <div class="pas">
-                    <label>Пароль: </label>
-                    <input type="password" name="password" placeholder="Введите пароль" required >
-                    </div>
-                    <button class="form_button" type="submit" name="submit">Войти</button>
-            </form>
-        </content>
-        <script>
 
-            document.getElementById("submit").addEventListener("click", function (e) {
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style_in.css">
+    <title>Вход</title>
+    <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+</head>
+
+<body>
+    <div class="label_in">Вход</div>
+    <content>
+        <form name="loginForm" class="input_form" method="post">
+            <div class="log">
+                <label>Логин: </label>
+                <input type="text" name="login" placeholder="Введите логин" required>
+            </div>
+            <div class="pas">
+                <label>Пароль: </label>
+                <input type="password" name="password" placeholder="Введите пароль" required>
+            </div>
+            <button class="form_button" type="submit" id="submit">Войти</button>
+        </form>
+    </content>
+    <script>
+        document.getElementById("submit").addEventListener("click", function (e) {
             e.preventDefault();
             // получаем данные формы
-            let registerForm = document.forms["registerForm"];
-            let userName = registerForm.elements["login"].value;
-            let userAge = registerForm.elements["password"].value;
-            // сериализуем данные в json
-            let user = JSON.stringify({login: login, password: password});
-            let request = new XMLHttpRequest();
-            // посылаем запрос на адрес "/user"
-            request.open("POST", "/user", true);
-            request.setRequestHeader("Content-Type", "application/json");
-            request.send(user);
-            });
-        </script>
-    </body>
+            let loginForm = document.forms["loginForm"];
+            let userLogin = loginForm.elements["login"].value;
+            let userPassword = loginForm.elements["password"].value;
+            axios({
+                url:"/login",
+                method: "post",
+                data: {
+                    login: userLogin,
+                    password: userPassword
+                }
+            }).then(response => {
+                alert(response.data.message)
+                window.location.replace("/add_page.html")
+            }).catch(error => {
+                alert(error.response.data.message)
+                console.error(error.response.data.errors);
+            })
+        });
+    </script>
+</body>
+
 </html>
