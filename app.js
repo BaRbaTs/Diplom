@@ -7,7 +7,7 @@ const DB = {}
 
 const app = express();
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3030
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +23,7 @@ app.post("/login", (request, response) => {
     if (!Boolean(request.body.password)) {
         errors.push("Пустой пароль!")
     }
-    
+
     if (errors.length > 0) {
         response.status(402).json({
             message: "Не удалось войти в аккаунт",
@@ -66,13 +66,13 @@ app.post("/login", (request, response) => {
 });
 
 app.get("/us_name", (require, response) => {
-    DB.Users.findOne({where: {login: "admin"}})
-    .then(result => {
-        response.json(result)
-    })
-    .catch(error =>{
-        response.sendStatus(404)
-    })
+    DB.Users.findOne({ where: { login: "admin" } })
+        .then(result => {
+            response.json(result)
+        })
+        .catch(error => {
+            response.sendStatus(404)
+        })
 });
 
 app.post("/add", (request, response) => {
@@ -119,9 +119,9 @@ app.post("/add", (request, response) => {
         .catch(error => {
             console.log(error);
         })
-    response.send("типо работает" );
-    });
-    
+    response.send("типо работает");
+});
+
 
 const client = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
@@ -288,5 +288,5 @@ DB.Applicants = client.define("Applicants", {
 client.sync({}).then(() => {
     console.log("База данных синхронизирована");
 
-    app.listen(PORT, () => { console.log(`Сервер запущен на порту ${PORT}`) }) 
+    app.listen(PORT, () => { console.log(`Сервер запущен на порту ${PORT}`) })
 });
