@@ -5,91 +5,92 @@
     <link rel="stylesheet" href="css/style_add.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Добавление абитуриента</title>
+    <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 </head>
 <body>
     <content>
         <div class="Data">
         <div class="Name">Пользователь: </div>
-        <form class="input_form" action="#" method="post">
+        <form name = "input_f" class="input_form" method="post">
         <div class="info">
             <div class="Label">
                 <label>Фамилия: </label>
-                <input type="text"  placeholder="Введите Фамилию " required >
+                <input type="text" name="Surname" placeholder="Введите Фамилию " required >
                 <label>Имя: </label>
-                <input type="text"  placeholder="Введите Имя " required >
+                <input type="text" name="Name" placeholder="Введите Имя " required >
                 <label>Отчество: </label>
-                <input type="text"  placeholder="Введите Отчество " required >
+                <input type="text" name="Patronymic" placeholder="Введите Отчество " required >
                 <label>Специальность: </label>
-                <input type="text"  placeholder="Введите Специальность " required >
+                <input type="text" name="Specialization" placeholder="Введите Специальность " required >
                 <label>Пол: </label>
-                <input type="text"  placeholder="Введите Пол " required >
+                <input type="text" name="Gender" placeholder="Введите Пол " required >
                 <label>Форма обучения: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Form_of_study" placeholder="Введите форму обучения " required >
                 <label>Дата рождения: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="date" name="Birthdate" placeholder="Введите дату рождения " required >
                 <label>Место рождения: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Birthplace" placeholder="Введите место рождения " required >
                 <label>Гражданство: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Nationality" placeholder="Введите гражданство " required >
                 <label>Документ удостоверяющий личность: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Identity_document" placeholder="Введите документ удостоверяющий личность " required >
                 <label>Серия паспорта: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Passport_series" placeholder="Введите серию паспорта " required >
                 <label>Номер паспорта: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Passport_number" placeholder="Введите номер паспорта " required >
                 <label>Дата выдачи паспорта: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="date" name="Date_issue_passport" placeholder="Введите дату выдачи паспорта " required >
                 <label>Кем выдан паспорт: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Who_issued_passport" placeholder="Введите кем выдан паспорт " required >
                 <label>Код подразделения: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Division_code" placeholder="Введите код подразделения " required >
                 <label>Прописка: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Registration" placeholder="Введите прописку " required >
                 <label>Место проживания: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Place_residence" placeholder="Введите место проживания " required >
                 <label>Телефон: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Phone" placeholder="Введите номер телеофна " required >
             </div>
             <div class="input">
                 <label>Школа: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="School" placeholder="Введите школу " required >
                 <label>Документ об образовании: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Education_document" placeholder="Введите документ об образовании " required >
                 <label>Дата окончания обучения: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="date" name="Graduation_date"  placeholder="Введите дату окончания обучения " required >
                 <label>Серия аттестата: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Certificate_series" placeholder="Введите серию аттестата" required >
                 <label>Номер аттестата: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Certificate_number" placeholder="Введите номер аттестата " required >
                 <label>Средний балл аттестата: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Certificate_GPA" placeholder="Введите средний балл аттестата " required >
                 <label>Иностранный язык: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Foreign_language" placeholder="Введите изучамый язык " required >
                 <label>Дата заявления: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="date" name="Date_application" placeholder="Введите дату заявления " required >
                 <label>Мать: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Mother_full_name" placeholder="Введите имя матери " required >
                 <label>Номер телефона матери: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Mother_phone" placeholder="Введите номер телефона матери " required >
                 <label>Отец: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Father_full_name" placeholder="Введите имя отца " required >
                 <label>Номер телефона отца: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Father_phone" placeholder="Введите номер телефона отца " required >
                 <label>Наличие оригинала: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Original_certificate" placeholder="Наличие оригинала " required >
                 <label>Примичание: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Note" placeholder="Введите примечание " required >
                 <label>Группа: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Group" placeholder="Введите группу " required >
                 <label>Регистрационный номер: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="Registration_number" placeholder="Введите регистрационный номер " required >
                 <label>Снилс: </label>
-                <input type="text"  placeholder="Введите имя " required >
+                <input type="text" name="SNILS" placeholder="Введите номер СНИЛСа " required >
             </div>
         </div>
         <div class="butt">
-        <button class="form_button" type="submit" name="submit">Добавить абитуриента</button>
+        <button class="form_button" type="submit" id="submit">Добавить абитуриента</button>
         </div>
         </form>
     </div>
@@ -97,5 +98,94 @@
             <div class="name_list">Список абитуриентов </div>
         </div>
     </content>
+    <script>
+        document.getElementById("submit").addEventListener("click", function (e) {
+            e.preventDefault();
+            // получаем данные формы
+            let loginForm = document.forms["input_f"];
+            let entrantSurname = loginForm.elements["Surname"].value;
+            let entrantName = loginForm.elements["Name"].value;
+            let entrantPatronymic = loginForm.elements["Patronymic"].value;
+            let entrantSpecialization = loginForm.elements["Specialization"].value;
+            let entrantGender = loginForm.elements["Gender"].value;
+            let entrantForm_of_study = loginForm.elements["Form_of_study"].value; 
+            let entrantBirthdate = loginForm.elements["Birthdate"].value;
+            let entrantBirthplace = loginForm.elements["Birthplace"].value;
+            let entrantNationality = loginForm.elements["Nationality"].value;
+            let entrantIdentity_document = loginForm.elements["Identity_document"].value;
+            let entrantPassport_series = loginForm.elements["Passport_series"].value;
+            let entrantPassport_number = loginForm.elements["Passport_number"].value;
+            let entrantDate_issue_passport = loginForm.elements["Date_issue_passport"].value;
+            let entrantWho_issued_passport = loginForm.elements["Who_issued_passport"].value;
+            let entrantDivision_code = loginForm.elements["Division_code"].value; 
+            let entrantRegistration = loginForm.elements["Registration"].value;
+            let entrantPlace_residence = loginForm.elements["Place_residence"].value;
+            let entrantPhone = loginForm.elements["Phone"].value;
+            let entrantSchool = loginForm.elements["School"].value;
+            let entrantEducation_document = loginForm.elements["Education_document"].value;
+            let entrantGraduation_date = loginForm.elements["Graduation_date"].value;
+            let entrantCertificate_series = loginForm.elements["Certificate_series"].value;
+            let entrantCertificate_number = loginForm.elements["Certificate_number"].value;
+            let entrantCertificate_GPA = loginForm.elements["Certificate_GPA"].value;
+            let entrantForeign_language = loginForm.elements["Foreign_language"].value;
+            let entrantDate_application = loginForm.elements["Date_application"].value;
+            let entrantMother_full_name = loginForm.elements["Mother_full_name"].value;
+            let entrantMother_phone = loginForm.elements["Mother_phone"].value;
+            let entrantFather_full_name = loginForm.elements["Father_full_name"].value; 
+            let entrantFather_phone = loginForm.elements["Father_phone"].value;
+            let entrantOriginal_certificate = loginForm.elements["Original_certificate"].value;
+            let entrantNote = loginForm.elements["Note"].value;
+            let entrantGroup = loginForm.elements["Group"].value;
+            let entrantRegistration_number = loginForm.elements["Registration_number"].value;
+            let entrantSNILS = loginForm.elements["SNILS"].value;
+            axios({
+                url:"/add",
+                method: "post",
+                data: {
+                    Surname: entrantSurname,
+                    Name: entrantName,
+                    Patronymic: entrantPatronymic,
+                    Specialization: entrantSpecialization,
+                    Gender: entrantGender,
+                    Form_of_study: entrantForm_of_study,
+                    Birthdate: entrantBirthdate,
+                    Birthplace: entrantBirthplace,
+                    Nationality: entrantNationality,
+                    Identity_document: entrantIdentity_document,
+                    Passport_series: entrantPassport_series,
+                    Passport_number: entrantPassport_number,
+                    Date_issue_passport: entrantDate_issue_passport,
+                    Who_issued_passport: entrantWho_issued_passport,
+                    Division_code: entrantDivision_code,
+                    Registration: entrantRegistration,
+                    Place_residence: entrantPlace_residence,
+                    Phone: entrantPhone,
+                    School: entrantSchool,
+                    Education_document: entrantEducation_document,
+                    Graduation_date: entrantGraduation_date,
+                    Certificate_series: entrantCertificate_series,
+                    Certificate_number: entrantCertificate_number,
+                    Certificate_GPA: entrantCertificate_GPA,
+                    Foreign_language: entrantForeign_language,
+                    Date_application: entrantDate_application,
+                    Mother_full_name: entrantMother_full_name,
+                    Mother_phone: entrantMother_phone,
+                    Father_full_name: entrantFather_full_name,
+                    Father_phone: entrantFather_phone,
+                    Original_certificate: entrantOriginal_certificate,
+                    Note: entrantNote,
+                    Group: entrantGroup,
+                    Registration_number: entrantRegistration_number,
+                    SNILS:entrantSNILS
+                }
+            }).then(response => {
+                alert(response.data.message)
+                window.location.reload()
+            }).catch(error => {
+                alert(error.response.data.message)
+                console.error(error.response.data.errors);
+            })
+        });
+    </script>
 </body>
 </html>

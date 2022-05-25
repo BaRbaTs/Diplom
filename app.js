@@ -65,6 +65,54 @@ app.post("/login", (request, response) => {
     })
 });
 
+app.post("/add", (request, response) => {
+    DB.Applicants.create({
+        Surname: request.body.Surname,
+        Name: request.body.Name,
+        Patronymic: request.body.Patronymic,
+        Specialization: request.body.Specialization,
+        Gender: request.body.Gender,
+        Form_of_study: request.body.Form_of_study,
+        Birthdate: request.body.Birthdate,
+        Birthplace: request.body.Birthplace,
+        Nationality: request.body.Nationality,
+        Identity_document: request.body.Identity_document,
+        Passport_series: request.body.Passport_series,
+        Passport_number: request.body.Passport_number,
+        Date_issue_passport: request.body.Date_issue_passport,
+        Who_issued_passport: request.body.Who_issued_passport,
+        Division_code: request.body.Division_code,
+        Registration: request.body.Registration,
+        Place_residence: request.body.Place_residence,
+        Phone: request.body.Phone,
+        School: request.body.School,
+        Education_document: request.body.Education_document,
+        Graduation_date: request.body.Graduation_date,
+        Certificate_series: request.body.Certificate_series,
+        Certificate_number: request.body.Certificate_number,
+        Certificate_GPA: request.body.Certificate_GPA,
+        Foreign_language: request.body.Foreign_language,
+        Date_application: request.body.Date_application,
+        Mother_full_name: request.body.Mother_full_name,
+        Mother_phone: request.body.Mother_phone,
+        Father_full_name: request.body.Father_full_name,
+        Father_phone: request.body.Father_phone,
+        Original_certificate: request.body.Original_certificate,
+        Note: request.body.Note,
+        Group: request.body.Group,
+        Registration_number: request.body.Registration_number,
+        SNILS: request.body.SNILS,
+    })
+        .then(user => {
+            response.sendStatus(201)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    response.send("типо работает" );
+    });
+    
+
 const client = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.DIALECT,
@@ -224,7 +272,7 @@ DB.Applicants = client.define("Applicants", {
     SNILS: {
         type: DataTypes.INTEGER,
         allowNull: true
-    },
+    }
 }, {})
 
 client.sync({force: true}).then(() => {
@@ -233,11 +281,6 @@ client.sync({force: true}).then(() => {
     DB.Users.create({
         login: "admin",
         password: "admin"
-    })
-    DB.Applicants.create({
-        Surname: "Pribish",
-        Name: "Ilya",
-        Patronymic: "Denisovich",
     })
 
     app.listen(PORT, () => { console.log(`Сервер запущен на порту ${PORT}`) }) 
