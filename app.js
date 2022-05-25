@@ -65,6 +65,16 @@ app.post("/login", (request, response) => {
     })
 });
 
+app.get("/us_name", (require, response) => {
+    DB.Users.findOne({where: {login: "admin"}})
+    .then(result => {
+        response.json(result)
+    })
+    .catch(error =>{
+        response.sendStatus(404)
+    })
+});
+
 app.post("/add", (request, response) => {
     DB.Applicants.create({
         Surname: request.body.Surname,
@@ -258,7 +268,7 @@ DB.Applicants = client.define("Applicants", {
         allowNull: true
     },
     Note: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true
     },
     Group: {
@@ -275,13 +285,8 @@ DB.Applicants = client.define("Applicants", {
     }
 }, {})
 
-client.sync({force: true}).then(() => {
+client.sync({}).then(() => {
     console.log("База данных синхронизирована");
-
-    DB.Users.create({
-        login: "admin",
-        password: "admin"
-    })
 
     app.listen(PORT, () => { console.log(`Сервер запущен на порту ${PORT}`) }) 
 });

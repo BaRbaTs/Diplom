@@ -11,7 +11,7 @@
 <body>
     <content>
         <div class="Data">
-        <div class="Name">Пользователь: </div>
+        <div class="Name" id = "title">Пользователь: </div>
         <form name = "input_f" class="input_form" method="post">
         <div class="info">
             <div class="Label">
@@ -186,6 +186,14 @@
                 console.error(error.response.data.errors);
             })
         });
+        axios({
+                url:"/us_name",
+                method: "get"
+            }).then(response => {
+                (document.getElementById("title").innerHTML(response.data.login))
+            }).catch(error => {
+                alert(error.response);
+            })
     </script>
 </body>
 </html>
