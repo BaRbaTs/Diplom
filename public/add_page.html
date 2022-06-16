@@ -104,7 +104,7 @@
         </div>
         <div class="list">
             <div class="name_list">Список абитуриентов </div>
-            <div> s</div>
+            <div class="stud"> s</div>
         </div>
     </content>
     <script>
@@ -202,6 +202,17 @@
         })
         .then(response => {
             document.getElementById("title").innerHTML = response.data.login
+        })
+        .catch(error => {
+            console.error(error.response);
+        });
+
+        axios({
+            url: "/table_stud",
+            method: "get"
+        })
+        .then(response => {
+            document.getElementById("stud").innerHTML = response.data
         })
         .catch(error => {
             console.error(error.response);

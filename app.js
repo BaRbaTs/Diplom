@@ -74,6 +74,24 @@ app.get("/us_name", (require, response) => {
             response.sendStatus(404)
         })
 });
+app.get("/us_name", (require, response) => {
+    DB.Users.findOne({ where: { login: "admin" } })
+        .then(result => {
+            response.json(result)
+        })
+        .catch(error => {
+            response.sendStatus(404)
+        })
+});
+app.get("/table_stud", (require, response) => {
+    DB.Users.findOne()
+        .then(result => {
+            response.json(result)
+        })
+        .catch(error => {
+            response.sendStatus(404)
+        })
+});
 
 app.post("/add", (request, response) => {
     DB.Applicants.create({
