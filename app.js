@@ -65,7 +65,7 @@ app.post("/login", (request, response) => {
     })
 });
 
-app.get("/us_name", (require, response) => {
+app.get("/us_name", (request, response) => {
     DB.Users.findOne({ where: { login: "admin" } })
         .then(result => {
             response.json(result)
@@ -74,7 +74,7 @@ app.get("/us_name", (require, response) => {
             response.sendStatus(404)
         })
 });
-app.get("/us_name", (require, response) => {
+app.get("/us_name", (request, response) => {
     DB.Users.findOne({ where: { login: "admin" } })
         .then(result => {
             response.json(result)
@@ -83,12 +83,13 @@ app.get("/us_name", (require, response) => {
             response.sendStatus(404)
         })
 });
-app.get("/table_stud", (require, response) => {
-    DB.Users.findOne()
+app.get("/table_stud", (request, response) => {
+    DB.Applicants.findAll()
         .then(result => {
             response.json(result)
         })
         .catch(error => {
+            console.log(error);
             response.sendStatus(404)
         })
 });

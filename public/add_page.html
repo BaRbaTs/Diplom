@@ -104,7 +104,7 @@
         </div>
         <div class="list">
             <div class="name_list">Список абитуриентов </div>
-            <div class="stud"> s</div>
+            <div id="stud" style="white-space: pre-wrap;"></div>
         </div>
     </content>
     <script>
@@ -204,7 +204,7 @@
             document.getElementById("title").innerHTML = response.data.login
         })
         .catch(error => {
-            console.error(error.response);
+            console.error(error);
         });
 
         axios({
@@ -212,10 +212,10 @@
             method: "get"
         })
         .then(response => {
-            document.getElementById("stud").innerHTML = response.data
+            document.getElementById("stud").innerHTML = JSON.stringify(response.data, null, '\t')
         })
         .catch(error => {
-            console.error(error.response);
+            console.error(error);
         })
     </script>
 </body>
